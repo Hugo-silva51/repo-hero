@@ -1,36 +1,84 @@
+// Função criada para simular as partidas
+function simularPartidas(totalPartidas) {
+    let vitorias = 0;
+    let derrotas = 0;
+
+// ALaços de repetições que simula cada partida
+    for (let i = 1; i <= totalPartidas; i++) {
+        let resultado = Math.random() < 0.7 ? "V" : "D";
+    // Um Math.random gera um resultado aleatório
 
 
-let nome = "Cesar";
-let xp = 2001;
-let nivel = "";
+    // Estrutura de decisão
+        if (resultado === "V") {
+            vitorias++
+        }
+        else {
+            derrotas++
+        }
+    }
+    return { vitorias, derrotas }
+}
 
-if (xp <= 1000) {
-    nivel = "Ferro";
-}
- else if (xp >= 1001 && xp <= 2000) {
-    nivel = "bronze";
-} 
-else if (xp >= 2001 && xp <= 3000) {
-    nivel = "prata";
-} 
-else if (xp >= 3001 && xp <= 4000) {
-    nivel = "ouro";
-}
- else if (xp >= 4001 && xp <= 5000) {
-    nivel = "platina";
-}
- else if (xp >= 5001 && xp <= 7000) {
-    nivel = "ascendente";
-}
- else if (xp >= 7001 && xp <= 8000) {
-    nivel = "imortal";
-}
-else {
-    {
-        nivel = "radiante";
+// Função para calcular  o rank
+function calcularRank(vitorias, derrotas) {
+    let saldo = vitorias - derrotas;
+    let totalPartidas = vitorias + derrotas;
+
+
+    console.log(" ===== RESULTADO FINAL =====");
+    console.log(`Total de Partidas: ${totalPartidas}`);
+    console.log(`Vitórias: ${vitorias}`);
+    console.log(`Derrotas: ${derrotas}`);
+    console.log(`Saldo: ${saldo}`)
+
+    // Estrutura de decisão para definir o rank
+    if (vitorias <= 10) {
+        console.log("Rank: Ferro");
+    }
+    else if (vitorias >= 11 && vitorias <= 20) {
+        console.log("Rank: Bronze");
+    }
+    else if (vitorias >= 21 && vitorias <= 30) {
+        console.log("Rank: Prata");
+
+    }
+    else if (vitorias >= 31 && vitorias <= 40) {
+        console.log("Rank: Ouro");
+    }
+
+    else if (vitorias >= 41 && vitorias <= 50) {
+        console.log("Rank: Platina");
+    }
+    else if (vitorias >= 51 && vitorias <= 60) {
+        console.log("Rank: Diamante");
+    }
+
+    else if(vitorias >= 61 && vitorias <= 70) {
+        console.log("Rank: Mestre")
+    }
+    else if(vitorias <= 71 && vitorias <= 80) {
+        console.log("Rank: Grão-Mestre")
+    }
+    else{
+        console.log("Rank: Lendário");
     }
 }
 
+// Variável com o total de partidas
+const totalPartidas = 100;
+
+//Chamando a função de simulação
+let resultado = simularPartidas(totalPartidas);
 
 
-console.log(`O Herói de nome ${nome} estáno nível ${nivel}`)
+//Chamando a função de rank com os dados obtidos
+calcularRank(resultado.vitorias, resultado.derrotas)
+
+
+
+
+
+
+
+
